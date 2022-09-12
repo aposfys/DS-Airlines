@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Update Flight's Price{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=update_flight>
+        <h3>Update flight's price</h3>
+        <div class="form-group">
+            <label for="unique_code">Unique code</label>
+            <input type="text" class="form-control" name="unique_code" placeholder="unique code" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="new_price">New price</label>
+            <input type="text" class="form-control" name="new_price" placeholder="new price" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+    </form>
+</div>
+
+{% endblock %}

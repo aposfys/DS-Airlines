@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} Search Flight{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=search_flight>
+        <h3>Search flight</h3>
+        <div class="form-group">
+            <label for="departure">Departure</label>
+            <input type="text" class="form-control" name="departure" placeholder="departure" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="destination">Destination</label>
+            <input type="text" class="form-control" name="destination" placeholder="destination" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" name="date" placeholder="date" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Search</button>
+    </form>
+</div>
+
+{% endblock %}

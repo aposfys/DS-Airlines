@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Show all bookings for a destination{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=show_bookings_destination>
+        <h3>Show all bookings for a destination</h3>
+        <div class="form-group">
+            <label for="destination">Destination</label>
+            <input type="text" class="form-control" name="destination" placeholder="destination" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Show</button>
+    </form>
+</div>
+
+{% endblock %}

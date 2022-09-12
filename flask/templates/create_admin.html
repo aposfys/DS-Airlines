@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Create Admin{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=create_admin>
+        <h3>Create Admin</h3>
+        <div class="form-group">
+            <label for="fullname">Full name</label>
+            <input type="text" class="form-control" name="fullname" placeholder="full name" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" class="form-control" name="email" placeholder="email" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="temp_password">Password</label>
+            <input type="password" class="form-control" name="temp_password" placeholder="temporary password" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Create</button>
+    </form>
+</div>
+
+{% endblock %}

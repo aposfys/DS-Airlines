@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Show all bookings{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=show_all_bookings>
+        <h3>Show all bookings</h3>
+        <div class="dropdown mt-3">
+            <button class="btn btn-outline-info dropdown-toggle"  data-bs-toggle="dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Choose the order
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><button type="submit" class="dropdown-item" href="#" name="choice" value="Oldest to newest">Oldest to newest</button></li>
+                <li><button type="submit" class="dropdown-item" href="#" name="choice" value="Newest to oldest">Newest to oldest</button></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

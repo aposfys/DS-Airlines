@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Show booking{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=show_booking>
+        <h3>Show booking</h3>
+        <div class="form-group">
+            <label for="booking_id">Booking id</label>
+            <input type="text" class="form-control" name="booking_id" placeholder="booking id" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Show</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Book Ticket{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=book_ticket>
+        <h3>Book ticket</h3>
+        <div class="form-group">
+            <label for="unique_code">Unique flight code</label>
+            <input type="text" class="form-control" name="unique_code" placeholder="unique code" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="full_name">Full name</label>
+            <input type="text" class="form-control" name="full_name" placeholder="full name" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="passport_num">Passport numbers</label>
+            <input type="text" class="form-control" name="passport_num" placeholder="passport num" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="credit_card">Credit card number</label>
+            <input type="text" class="form-control" name="credit_card" placeholder="credit card number" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Book</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Delete Flight{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=delete_flight>
+        <h3>Delete flight</h3>
+        <div class="form-group">
+            <label for="unique_code">Unique code</label>
+            <input type="text" class="form-control" name="unique_code" placeholder="unique code" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Delete</button>
+    </form>
+</div>
+
+{% endblock %}

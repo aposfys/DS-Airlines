@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Cancel booking{% endblock %}
+{% block body %} 
+<div class="container">
+    <form method=POST action=cancel_booking>
+        <h3>Cancel booking</h3>
+        <div class="form-group">
+            <label for="booking_id">Booking id</label>
+            <input type="text" class="form-control" name="booking_id" placeholder="booking id" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-danger">Cancel</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Welcome page {% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Welcome to DS Airlines!</h1>
+
+    <div class="row">
+        <div class="col-sm">
+            <form action="login">
+                <p>Please login if you already have an acount.</p>
+                <button type="submit" class="btn btn-outline-info">Login</button> 
+            </form>
+            <br>
+            <form action='sign_up'>
+                <p>Please sign-up if you haven't already.</p>
+                <button type="submit" class="btn btn-outline-info">Sign-up</button> 
+            </form>
+        </div>
+
+        <div class="col-sm">
+            <form action='login_admin'>
+                <p>Login as an admin</p>
+                <button type="submit" class="btn btn-outline-info">Login Admin</button> 
+            </form>
+            <br>
+            <form action='activate_account'>
+                <p>Activate account</p>
+                <button type="submit" class="btn btn-outline-info">Activate</button> 
+            </form>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-sm">
+                <form action='logout'>
+                    <p>Logout</p>
+                    <button type="submit" class="btn btn-outline-danger">Logout</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
