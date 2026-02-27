@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card mt-5">
+            <div class="card-header">Activate Account</div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="activation_code" class="form-label">Activation Code</label>
+                        <input type="number" class="form-control" id="activation_code" name="activation_code" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Activate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

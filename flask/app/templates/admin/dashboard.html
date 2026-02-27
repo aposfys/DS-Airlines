@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Admin Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Create Flight</h5>
+                    <p class="card-text">Add a new flight to the schedule.</p>
+                    <a href="{{ url_for('admin.create_flight') }}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Update Flight Price</h5>
+                    <p class="card-text">Change the price of an existing empty flight.</p>
+                    <a href="{{ url_for('admin.update_flight') }}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Delete Flight</h5>
+                    <p class="card-text">Remove a flight from the system.</p>
+                    <a href="{{ url_for('admin.delete_flight') }}" class="btn btn-danger">Go</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Create Admin</h5>
+                    <p class="card-text">Register a new administrator.</p>
+                    <a href="{{ url_for('admin.create_admin') }}" class="btn btn-warning">Go</a>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Update Password</h5>
+                    <p class="card-text">Change your administrator password.</p>
+                    <a href="{{ url_for('admin.update_password') }}" class="btn btn-secondary">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

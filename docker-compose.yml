@@ -1,22 +1,26 @@
-version: '2'
+version: '3.8'
+
 services:
   mongodb:
-    image: mongo
+    image: mongo:5.0
     restart: always
-    container_name: mongodb 
+    container_name: mongodb
     ports:
-    - 27017:27017
+      - "27017:27017"
     volumes:
-    - ./mongodb/data:/data/db 
-  flask-service:
-    image: dsairlinesapp
-    build:
-      context: ./flask 
-    restart: always 
-    container_name: flask 
-    depends_on: 
+      - ./mongodb/data:/data/db
+
+  web:
+    build: ./flask
+    image: dsairlines-app
+    restart: always
+    container_name: dsairlines-web
+    depends_on:
       - mongodb
     ports:
-      - 5000:5000
-    environment: 
-      - "MONGO_HOSTNAME=mongodb"
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/DSAirlines
+      - SECRET_KEY=prod-secret-key-change-this
+      - FLASK_APP=run.py
+      - FLASK_ENV=production

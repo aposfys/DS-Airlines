@@ -1,11 +1,14 @@
-FROM ubuntu:20.04
-RUN apt-get update
-RUN apt-get install -y python3 python3-pip
-RUN pip3 install flask pymongo
-RUN mkdir /app
-RUN mkdir -p /app/data
-COPY DSAirlines.py /app/DSAirlines.py
-ADD templates /app/templates
-EXPOSE 5000
+FROM python:3.9-slim
+
 WORKDIR /app
-ENTRYPOINT [ "python3","-u", "DSAirlines.py" ]
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Expose port 5000 for Gunicorn
+EXPOSE 5000
+
+# Use Gunicorn as the WSGI server
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "run:app"]

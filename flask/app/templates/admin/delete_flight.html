@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card mt-5">
+            <div class="card-header">Delete Flight</div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.unique_code.label(class="form-label") }}
+                        {{ form.unique_code(class="form-control") }}
+                    </div>
+                    <button type="submit" class="btn btn-danger">Delete Flight</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
