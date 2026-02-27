@@ -3,24 +3,30 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:5.0
-    restart: always
     container_name: mongodb
+    restart: always
     ports:
       - "27017:27017"
     volumes:
-      - ./mongodb/data:/data/db
+      - ./mongodb_data:/data/db
 
-  web:
-    build: ./flask
-    image: dsairlines-app
-    restart: always
-    container_name: dsairlines-web
+  backend:
+    build: ./backend
+    container_name: backend
     depends_on:
       - mongodb
     ports:
-      - "5000:5000"
+      - "8000:8000"
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/DSAirlines
-      - SECRET_KEY=prod-secret-key-change-this
-      - FLASK_APP=run.py
-      - FLASK_ENV=production
+      - MONGO_URL=mongodb://mongodb:27017
+      - SECRET_KEY=your-secret-key
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
