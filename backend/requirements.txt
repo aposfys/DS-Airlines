@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+motor
+pydantic[email]
+python-jose[cryptography]
+# Removed passlib as we are using bcrypt directly
+bcrypt
+python-multipart
+pytest
+httpx
+pytest-asyncio
+email-validator
+python-dotenv
+pymongo==4.6.3

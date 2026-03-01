@@ -1,22 +1,31 @@
-version: '2'
 services:
-  mongodb:
-    image: mongo
-    restart: always
-    container_name: mongodb 
+  db:
+    image: mongo:latest
     ports:
-    - 27017:27017
+      - "27017:27017"
     volumes:
-    - ./mongodb/data:/data/db 
-  flask-service:
-    image: dsairlinesapp
-    build:
-      context: ./flask 
-    restart: always 
-    container_name: flask 
-    depends_on: 
-      - mongodb
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
     ports:
-      - 5000:5000
-    environment: 
-      - "MONGO_HOSTNAME=mongodb"
+      - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb://db:27017
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:8000/api
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
